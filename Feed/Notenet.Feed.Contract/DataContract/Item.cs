@@ -11,6 +11,7 @@ namespace Notenet.Feed.DataContract
         public Guid ItemID
         {
             get;
+
             private set;
         }
 
