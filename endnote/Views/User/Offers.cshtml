@@ -1,0 +1,68 @@
+﻿@model IEnumerable<endnote.Lib.Offer>
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewBag.Title = "Offers";
+}
+
+<h2>Offers</h2>
+
+@if (ViewBag.User.UserId.ToString() == Membership.GetUser().ProviderUserKey.ToString())
+{
+    @Html.Partial("NewOffer", new endnote.Lib.Offer())
+}
+
+<div id="pl_content_hisFeed">
+<div class="feed_lists" node-type="feed_list">
+@foreach (var item in Model)
+{
+    <dl action-type="feed_list_item" class="feed_list W_linecolor ">
+        <dd class="content">
+            <p node-type="feed_list_content">@Html.DisplayFor(modelItem => item.OfferName)</p>
+            <p class="info W_linkb W_textb">
+                <span>	
+                    <a action-data="allowForward=1&amp;url=http://weibo.com/1610536214/y84Xt0PFo&amp;mid=3419256870198610&amp;name=李静&amp;uid=1610536214&amp;domain=jingjardin" action-type="feed_list_forward" href="javascript:void(0);">转发(143)</a><i class="W_vline">|</i>
+		            <a action-type="feed_list_favorite" diss-data="fuid=1610536214" href="javascript:void(0);">收藏</a><i class="W_vline">|</i>
+	                <a action-type="feed_list_comment" href="javascript:void(0);">评论(76)</a>
+                </span>
+                <a title="2012-03-02 22:17" node-type="feed_list_item_date" date="1330697828000" href="/1610536214/y84Xt0PFo" class="date">3月2日22:17</a> 来自<a target="_blank" href="http://m.weibo.com/web/cellphone.php#iphone" rel="nofollow">iPhone客户端</a>
+	        </p>
+        </dd>
+        <dd class="clear"></dd>
+    </dl>
+}
+</div>
+</div>
+
+<table>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfferName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.ActionLink("转发", "ForwardOffer", new { id = item.OfferId })
+        </td>
+        <td>
+            @Ajax.ActionLink("评论", "CommentOffer", new { id = item.OfferId }, new AjaxOptions { LoadingElementId = "loading" })
+        </td>
+        <td>
+            @if (ViewBag.User.UserId.ToString() == Membership.GetUser().ProviderUserKey.ToString())
+            {
+                using (Html.BeginForm("DeleteOffer", "User", new { id = item.OfferId }))
+                {
+                    <input type="submit" value="DeleteOffer" /> 
+                }
+            }
+        </td>
+    </tr>
+}
+</table>
+

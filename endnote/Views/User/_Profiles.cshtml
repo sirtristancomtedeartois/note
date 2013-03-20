@@ -1,0 +1,38 @@
+﻿@model IEnumerable<endnote.Lib.Blog>	
+
+<script type="text/javascript">
+    $(function () {
+        $("a", ".demo").button();
+    });
+</script>
+
+<div id="profile_list">
+@foreach (var item in Model)
+{
+    <dl>
+        <dd>
+            <p>@Html.DisplayFor(modelItem => item.Subject)</p>
+            <div class="demo">
+                <a href="javascript:forward('@item.BlogId');">转发</a><i class="W_vline">|</i>
+		        @Ajax.ActionLink("收藏", "Fav", new { blogId = item.BlogId }, new AjaxOptions { UpdateTargetId="" })<i class="W_vline">|</i>
+	            <a href="javascript:comment('@item.BlogId')" id="comment">评论</a>
+                <a title="@item.CreateTimeStamp.Value" href="#">@item.CreateTimeStamp.Value.ToString("MM月dd日hh:mm")</a>
+                @if (ViewBag.User.UserId.ToString() == Membership.GetUser().ProviderUserKey.ToString())
+                {
+                    <i class="W_vline">|</i>
+                    <a href="javascript:deleteBlog('@item.BlogId');" name="deleteBlog">删除</a>
+                    @Ajax.ActionLink("删除", "DeleteBlog", "User", new { id = item.BlogId }, new AjaxOptions { UpdateTargetId = "profile_list", HttpMethod = "GET", InsertionMode = InsertionMode.Replace }, new { id = "deleteblogs" + item.BlogId, style = "display:none" })
+                }
+                <div class="toggler">
+	                <div id="@item.BlogId" class="ui-widget-content ui-corner-all" style="width: 80%; height: 180px; padding: 0.4em; position: relative; display: none;">
+		                <p>
+                            @Html.Partial("_CommentBlog", new endnote.Lib.Comment())
+                        </p>
+	                </div>
+                </div>
+            </div>
+        </dd>
+        <dd class="clear"><hr /></dd>
+    </dl>
+}
+</div>

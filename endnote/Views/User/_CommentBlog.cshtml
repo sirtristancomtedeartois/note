@@ -1,0 +1,12 @@
+﻿@model endnote.Lib.Comment
+
+@using (Ajax.BeginForm("NewComment", "User", new AjaxOptions { UpdateTargetId = "profile_list", HttpMethod = "GET", InsertionMode = InsertionMode.Replace }))
+{
+    <fieldset>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Description, new { @class = "text ui-widget-content ui-corner-all", rows = 3, cols = 63, style = "overflow: hidden" })
+        </div>
+        <br />
+        <input type="submit" value="评论" />
+    </fieldset>
+}

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<endnote.Lib.Friend>
+
+<script type="text/javascript">
+    $(function () {
+        $("a", ".demo").button();
+    });
+</script>
+
+<table id="tblFans">
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink(item.aspnet_Users.UserInfo.NickName, "Profiles", new { userId = item.UserId })
+        </td>
+        <td>
+            <div class="demo">
+                <a href="javascript:removeFans('@item.UserId');" name="removeFans">移除粉丝</a>
+                @Ajax.ActionLink("移除粉丝", "RemoveFans", new { userId = item.UserId }, new AjaxOptions { UpdateTargetId = "tblFans", HttpMethod = "GET", InsertionMode = InsertionMode.Replace }, new { id = "removefans" + item.UserId, style = "display:none" })
+            </div>
+        </td>
+    </tr>
+}
+</table>

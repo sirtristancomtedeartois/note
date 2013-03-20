@@ -1,0 +1,96 @@
+﻿@model IEnumerable<endnote.Lib.Blog>	
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewBag.Title = "Profiles";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("a", ".demo").button();
+    });
+
+
+    $(function () {
+        $("#dialog-form").dialog({
+            autoOpen: false,
+            height: 160,
+            width: 350,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "确定": function () {
+                    $("#formForward").submit();
+                    $(this).dialog("close");
+                },
+                "取消": function () {
+                    $(this).dialog("close");
+                }
+            },
+            close: function () {
+
+            }
+        });
+    });
+
+    $(function () {
+        $("#deleteBlog-dialog").dialog({
+            autoOpen: false,
+            height: 160,
+            width: 350,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "确定": function () {
+                    $("#deleteblogs" + $("#blogId").val()).click();
+                    $(this).dialog("close");
+                },
+                "取消": function () {
+                    $(this).dialog("close");
+                }
+            },
+            close: function () {
+
+            }
+        });
+    });
+
+    function forward(blogId) {
+        $("#hiddenExternalId").val(blogId);
+        $("#dialog-form").dialog("open");
+    }
+
+    function comment(blogId) {
+        var selectedEffect = "blind";
+        var options = {};
+        $("#" + blogId).toggle(selectedEffect, options, 500);
+        return false;
+    }
+
+    function deleteBlog(blogId) {
+        $("#blogId").val(blogId);
+        $("#deleteBlog-dialog").dialog("open");
+    }
+</script>
+
+
+
+<h2>Profiles</h2>
+
+@if (ViewBag.User.UserId.ToString() == Membership.GetUser().ProviderUserKey.ToString())
+{
+    @Html.Partial("NewProfile", new endnote.Lib.Blog())
+}
+
+@Html.Partial("_Profiles", this.Model)
+
+@Html.Partial("_Forward", new endnote.Lib.Blog())
+
+
+<div id="deleteBlog-dialog">
+	@using (Html.BeginForm("DeleteBlog", "User", new { blogId = string.Empty }))
+    {
+        <span>确定删除微博?</span>
+        <input type="hidden" id="blogId" />
+	}
+</div>

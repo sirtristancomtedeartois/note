@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Notenet.FriendContent.Service.FriendContent" CodeBehind="FriendContent.svc.cs" %>

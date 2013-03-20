@@ -1,0 +1,31 @@
+﻿@model IEnumerable<endnote.Lib.Friend>
+
+<script type="text/javascript">
+$(function () {
+    $("a", ".demo").button();
+});
+</script>
+
+<table id="tblFollows">
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink(item.aspnet_Users1.UserInfo.NickName, "Profiles", new { userId = item.FriendUserId })
+        </td>
+        <td>
+            <div class="demo">
+            @if (((Dictionary<Guid, int>)ViewData["dicFriend"])[item.FriendUserId] == 0)
+            {
+                @Html.ActionLink("Follow", "Follow", "Friend", new { friendUserId = item.FriendUserId }, new { })
+            }
+            else if (((Dictionary<Guid, int>)ViewData["dicFriend"])[item.FriendUserId] == 1)
+            {
+                <a href="javascript:unfollow('@item.FriendUserId');" name="unfollow">取消关注</a>
+                @Ajax.ActionLink("Unfollow", "Unfollow", new { friendUserId = item.FriendUserId }, new AjaxOptions { UpdateTargetId = "tblFollows", HttpMethod = "GET", InsertionMode = InsertionMode.Replace }, new { id= "unfollow" + item.FriendUserId, style="display:none" })
+            }
+            </div>
+        </td>
+    </tr>
+}
+</table>

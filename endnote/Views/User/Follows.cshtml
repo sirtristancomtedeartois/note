@@ -1,0 +1,53 @@
+﻿@model IEnumerable<endnote.Lib.Friend>
+           
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewBag.Title = "Follows";
+}
+
+<script type="text/javascript">
+$(function () {
+    $("a", ".demo").button();
+});
+
+
+$(function () {
+    $("#dialog-form").dialog({
+        autoOpen: false,
+        height: 160,
+        width: 350,
+        modal: true,
+        resizable: false,
+        buttons: {
+            "确定": function () {
+                $("#unfollow" + $("#friendUserId").val()).click();
+                $(this).dialog("close");
+            },
+            "取消": function () {
+                $(this).dialog("close");
+            }
+        },
+        close: function () {
+
+        }
+    });
+});
+
+function unfollow(friendUserId) {
+    $("#friendUserId").val(friendUserId);
+    $("#dialog-form").dialog("open");
+}
+
+</script>
+
+<h2>Follows</h2>
+
+@Html.Partial("_Follows", this.Model)
+
+<div id="dialog-form">
+	@using (Html.BeginForm("Unfollow", "Friend", new { friendUserId = string.Empty }))
+    {
+        <span>确定不再关注?</span>
+        <input type="hidden" id="friendUserId" />
+	}
+</div>

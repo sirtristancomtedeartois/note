@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="endnoteModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="endnoteModelStoreContainer">
+          <EntitySet Name="aspnet_Applications" EntityType="endnoteModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Membership" EntityType="endnoteModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Paths" EntityType="endnoteModel.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="endnoteModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="endnoteModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Profile" EntityType="endnoteModel.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Roles" EntityType="endnoteModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="endnoteModel.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Users" EntityType="endnoteModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="endnoteModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="endnoteModel.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FriendInfo" EntityType="endnoteModel.Store.FriendInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NotebookInfo" EntityType="endnoteModel.Store.NotebookInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NoteInfo" EntityType="endnoteModel.Store.NoteInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NoteShare" EntityType="endnoteModel.Store.NoteShare" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__239E4DCF" Association="endnoteModel.Store.FK__aspnet_Me__Appli__239E4DCF">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__24927208" Association="endnoteModel.Store.FK__aspnet_Me__UserI__24927208">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__5CD6CB2B" Association="endnoteModel.Store.FK__aspnet_Pa__Appli__5CD6CB2B">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6477ECF3" Association="endnoteModel.Store.FK__aspnet_Pe__PathI__6477ECF3">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6A30C649" Association="endnoteModel.Store.FK__aspnet_Pe__PathI__6A30C649">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__UserI__6B24EA82" Association="endnoteModel.Store.FK__aspnet_Pe__UserI__6B24EA82">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pr__UserI__3A81B327" Association="endnoteModel.Store.FK__aspnet_Pr__UserI__3A81B327">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__45F365D3" Association="endnoteModel.Store.FK__aspnet_Ro__Appli__45F365D3">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__0F975522" Association="endnoteModel.Store.FK__aspnet_Us__Appli__0F975522">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__RoleI__4CA06362" Association="endnoteModel.Store.FK__aspnet_Us__RoleI__4CA06362">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__UserI__4BAC3F29" Association="endnoteModel.Store.FK__aspnet_Us__UserI__4BAC3F29">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FriendInfo_aspnet_Users" Association="endnoteModel.Store.FK_FriendInfo_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="FriendInfo" EntitySet="FriendInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FriendInfo_aspnet_Users1" Association="endnoteModel.Store.FK_FriendInfo_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="FriendInfo" EntitySet="FriendInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotebookInfo_aspnet_Users1" Association="endnoteModel.Store.FK_NotebookInfo_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="NotebookInfo" EntitySet="NotebookInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteInfo_aspnet_Users" Association="endnoteModel.Store.FK_NoteInfo_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="NoteInfo" EntitySet="NoteInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteInfo_NotebookInfo" Association="endnoteModel.Store.FK_NoteInfo_NotebookInfo">
+            <End Role="NotebookInfo" EntitySet="NotebookInfo" />
+            <End Role="NoteInfo" EntitySet="NoteInfo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="CompatibleSchemaVersion" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="EventTime" Type="datetime" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="EventSequence" Type="decimal" Nullable="false" Precision="19" />
+          <Property Name="EventOccurrence" Type="decimal" Nullable="false" Precision="19" />
+          <Property Name="EventCode" Type="int" Nullable="false" />
+          <Property Name="EventDetailCode" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
+          <Property Name="Details" Type="ntext" />
+        </EntityType>
+        <EntityType Name="FriendInfo">
+          <Key>
+            <PropertyRef Name="FriendInfoID" />
+          </Key>
+          <Property Name="FriendInfoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID1" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID2" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotebookInfo">
+          <Key>
+            <PropertyRef Name="NotebookId" />
+          </Key>
+          <Property Name="NotebookId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NotebookName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoteInfo">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoteContent" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NotebookId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="NoteShare">
+          <Key>
+            <PropertyRef Name="NotebookId" />
+            <PropertyRef Name="NoteId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="NotebookId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NoteId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__Appli__239E4DCF">
+          <End Role="aspnet_Applications" Type="endnoteModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="endnoteModel.Store.aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Me__UserI__24927208">
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="endnoteModel.Store.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__5CD6CB2B">
+          <End Role="aspnet_Applications" Type="endnoteModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="endnoteModel.Store.aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6477ECF3">
+          <End Role="aspnet_Paths" Type="endnoteModel.Store.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="endnoteModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6A30C649">
+          <End Role="aspnet_Paths" Type="endnoteModel.Store.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="endnoteModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__UserI__6B24EA82">
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="endnoteModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pr__UserI__3A81B327">
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Profile" Type="endnoteModel.Store.aspnet_Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__45F365D3">
+          <End Role="aspnet_Applications" Type="endnoteModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="endnoteModel.Store.aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__0F975522">
+          <End Role="aspnet_Applications" Type="endnoteModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__RoleI__4CA06362">
+          <End Role="aspnet_Roles" Type="endnoteModel.Store.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="endnoteModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__UserI__4BAC3F29">
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="endnoteModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FriendInfo_aspnet_Users">
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="FriendInfo" Type="endnoteModel.Store.FriendInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="FriendInfo">
+              <PropertyRef Name="UserID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FriendInfo_aspnet_Users1">
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="FriendInfo" Type="endnoteModel.Store.FriendInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="FriendInfo">
+              <PropertyRef Name="UserID2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotebookInfo_aspnet_Users1">
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="NotebookInfo" Type="endnoteModel.Store.NotebookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="NotebookInfo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteInfo_aspnet_Users">
+          <End Role="aspnet_Users" Type="endnoteModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="NoteInfo" Type="endnoteModel.Store.NoteInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="NoteInfo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteInfo_NotebookInfo">
+          <End Role="NotebookInfo" Type="endnoteModel.Store.NotebookInfo" Multiplicity="0..1" />
+          <End Role="NoteInfo" Type="endnoteModel.Store.NoteInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotebookInfo">
+              <PropertyRef Name="NotebookId" />
+            </Principal>
+            <Dependent Role="NoteInfo">
+              <PropertyRef Name="NotebookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="endnoteModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="endnoteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Applications" EntityType="endnoteModel.aspnet_Applications" />
+          <EntitySet Name="aspnet_Membership" EntityType="endnoteModel.aspnet_Membership" />
+          <EntitySet Name="aspnet_Paths" EntityType="endnoteModel.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="endnoteModel.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="endnoteModel.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="endnoteModel.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="endnoteModel.aspnet_Roles" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="endnoteModel.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Users" EntityType="endnoteModel.aspnet_Users" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="endnoteModel.aspnet_WebEvent_Events" />
+          <EntitySet Name="NotebookInfo" EntityType="endnoteModel.NotebookInfo" />
+          <EntitySet Name="NoteInfo" EntityType="endnoteModel.NoteInfo" />
+          <EntitySet Name="NoteShare" EntityType="endnoteModel.NoteShare" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__239E4DCF" Association="endnoteModel.FK__aspnet_Me__Appli__239E4DCF">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__5CD6CB2B" Association="endnoteModel.FK__aspnet_Pa__Appli__5CD6CB2B">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__45F365D3" Association="endnoteModel.FK__aspnet_Ro__Appli__45F365D3">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__0F975522" Association="endnoteModel.FK__aspnet_Us__Appli__0F975522">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__24927208" Association="endnoteModel.FK__aspnet_Me__UserI__24927208">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6477ECF3" Association="endnoteModel.FK__aspnet_Pe__PathI__6477ECF3">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6A30C649" Association="endnoteModel.FK__aspnet_Pe__PathI__6A30C649">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__UserI__6B24EA82" Association="endnoteModel.FK__aspnet_Pe__UserI__6B24EA82">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pr__UserI__3A81B327" Association="endnoteModel.FK__aspnet_Pr__UserI__3A81B327">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotebookInfo_aspnet_Users1" Association="endnoteModel.FK_NotebookInfo_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="NotebookInfo" EntitySet="NotebookInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteInfo_aspnet_Users" Association="endnoteModel.FK_NoteInfo_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="NoteInfo" EntitySet="NoteInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteInfo_NotebookInfo" Association="endnoteModel.FK_NoteInfo_NotebookInfo">
+            <End Role="NotebookInfo" EntitySet="NotebookInfo" />
+            <End Role="NoteInfo" EntitySet="NoteInfo" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersInRoles" Association="endnoteModel.aspnet_UsersInRoles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <EntitySet Name="FriendInfo" EntityType="endnoteModel.FriendInfo" />
+          <AssociationSet Name="FK_FriendInfo_aspnet_Users" Association="endnoteModel.FK_FriendInfo_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="FriendInfo" EntitySet="FriendInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FriendInfo_aspnet_Users1" Association="endnoteModel.FK_FriendInfo_aspnet_Users1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="FriendInfo" EntitySet="FriendInfo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="endnoteModel.FK__aspnet_Me__Appli__239E4DCF" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="endnoteModel.FK__aspnet_Pa__Appli__5CD6CB2B" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="endnoteModel.FK__aspnet_Ro__Appli__45F365D3" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="aspnet_Users" Relationship="endnoteModel.FK__aspnet_Us__Appli__0F975522" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="endnoteModel.FK__aspnet_Me__Appli__239E4DCF" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="endnoteModel.FK__aspnet_Me__UserI__24927208" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="endnoteModel.FK__aspnet_Pa__Appli__5CD6CB2B" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="endnoteModel.FK__aspnet_Pe__PathI__6477ECF3" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="endnoteModel.FK__aspnet_Pe__PathI__6A30C649" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="endnoteModel.FK__aspnet_Pe__PathI__6477ECF3" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="endnoteModel.FK__aspnet_Pe__PathI__6A30C649" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Users" Relationship="endnoteModel.FK__aspnet_Pe__UserI__6B24EA82" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="endnoteModel.FK__aspnet_Pr__UserI__3A81B327" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="endnoteModel.FK__aspnet_Ro__Appli__45F365D3" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="endnoteModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="endnoteModel.FK__aspnet_Us__Appli__0F975522" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="endnoteModel.FK__aspnet_Me__UserI__24927208" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="endnoteModel.FK__aspnet_Pe__UserI__6B24EA82" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+          <NavigationProperty Name="aspnet_Profile" Relationship="endnoteModel.FK__aspnet_Pr__UserI__3A81B327" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+          <NavigationProperty Name="NotebookInfo" Relationship="endnoteModel.FK_NotebookInfo_aspnet_Users1" FromRole="aspnet_Users" ToRole="NotebookInfo" />
+          <NavigationProperty Name="NoteInfo" Relationship="endnoteModel.FK_NoteInfo_aspnet_Users" FromRole="aspnet_Users" ToRole="NoteInfo" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="endnoteModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="FriendInfo" Relationship="endnoteModel.FK_FriendInfo_aspnet_Users" FromRole="aspnet_Users" ToRole="FriendInfo" />
+          <NavigationProperty Name="FriendInfo1" Relationship="endnoteModel.FK_FriendInfo_aspnet_Users1" FromRole="aspnet_Users" ToRole="FriendInfo" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
+          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" />
+          <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventCode" Type="Int32" Nullable="false" />
+          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="RequestUrl" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="ExceptionType" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="NotebookInfo">
+          <Key>
+            <PropertyRef Name="NotebookId" />
+          </Key>
+          <Property Name="NotebookId" Type="Guid" Nullable="false" />
+          <Property Name="NotebookName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="endnoteModel.FK_NotebookInfo_aspnet_Users1" FromRole="NotebookInfo" ToRole="aspnet_Users" />
+          <NavigationProperty Name="NoteInfo" Relationship="endnoteModel.FK_NoteInfo_NotebookInfo" FromRole="NotebookInfo" ToRole="NoteInfo" />
+        </EntityType>
+        <EntityType Name="NoteInfo">
+          <Key>
+            <PropertyRef Name="NoteId" />
+          </Key>
+          <Property Name="NoteId" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NoteContent" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="NotebookId" Type="Guid" />
+          <NavigationProperty Name="aspnet_Users" Relationship="endnoteModel.FK_NoteInfo_aspnet_Users" FromRole="NoteInfo" ToRole="aspnet_Users" />
+          <NavigationProperty Name="NotebookInfo" Relationship="endnoteModel.FK_NoteInfo_NotebookInfo" FromRole="NoteInfo" ToRole="NotebookInfo" />
+        </EntityType>
+        <EntityType Name="NoteShare">
+          <Key>
+            <PropertyRef Name="NotebookId" />
+            <PropertyRef Name="NoteId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="NotebookId" Type="Guid" Nullable="false" />
+          <Property Name="NoteId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__Appli__239E4DCF">
+          <End Role="aspnet_Applications" Type="endnoteModel.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="endnoteModel.aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__5CD6CB2B">
+          <End Role="aspnet_Applications" Type="endnoteModel.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="endnoteModel.aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__45F365D3">
+          <End Role="aspnet_Applications" Type="endnoteModel.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="endnoteModel.aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__0F975522">
+          <End Role="aspnet_Applications" Type="endnoteModel.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="endnoteModel.aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Me__UserI__24927208">
+          <End Role="aspnet_Users" Type="endnoteModel.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="endnoteModel.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6477ECF3">
+          <End Role="aspnet_Paths" Type="endnoteModel.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="endnoteModel.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6A30C649">
+          <End Role="aspnet_Paths" Type="endnoteModel.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="endnoteModel.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__UserI__6B24EA82">
+          <End Role="aspnet_Users" Type="endnoteModel.aspnet_Users" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="endnoteModel.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pr__UserI__3A81B327">
+          <End Role="aspnet_Users" Type="endnoteModel.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Profile" Type="endnoteModel.aspnet_Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotebookInfo_aspnet_Users1">
+          <End Role="aspnet_Users" Type="endnoteModel.aspnet_Users" Multiplicity="1" />
+          <End Role="NotebookInfo" Type="endnoteModel.NotebookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="NotebookInfo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteInfo_aspnet_Users">
+          <End Role="aspnet_Users" Type="endnoteModel.aspnet_Users" Multiplicity="1" />
+          <End Role="NoteInfo" Type="endnoteModel.NoteInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="NoteInfo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteInfo_NotebookInfo">
+          <End Role="NotebookInfo" Type="endnoteModel.NotebookInfo" Multiplicity="0..1" />
+          <End Role="NoteInfo" Type="endnoteModel.NoteInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotebookInfo">
+              <PropertyRef Name="NotebookId" />
+            </Principal>
+            <Dependent Role="NoteInfo">
+              <PropertyRef Name="NotebookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Role="aspnet_Roles" Type="endnoteModel.aspnet_Roles" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="endnoteModel.aspnet_Users" Multiplicity="*" />
+        </Association>
+        <EntityType Name="FriendInfo">
+          <Key>
+            <PropertyRef Name="FriendInfoID" />
+          </Key>
+          <Property Type="Guid" Name="FriendInfoID" Nullable="false" />
+          <Property Type="Guid" Name="UserID1" Nullable="false" />
+          <Property Type="Guid" Name="UserID2" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="endnoteModel.FK_FriendInfo_aspnet_Users" FromRole="FriendInfo" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_Users1" Relationship="endnoteModel.FK_FriendInfo_aspnet_Users1" FromRole="FriendInfo" ToRole="aspnet_Users" />
+        </EntityType>
+        <Association Name="FK_FriendInfo_aspnet_Users">
+          <End Type="endnoteModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="endnoteModel.FriendInfo" Role="FriendInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="FriendInfo">
+              <PropertyRef Name="UserID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FriendInfo_aspnet_Users1">
+          <End Type="endnoteModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="endnoteModel.FriendInfo" Role="FriendInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="FriendInfo">
+              <PropertyRef Name="UserID2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="endnoteModelStoreContainer" CdmEntityContainer="endnoteEntities">
+          <EntitySetMapping Name="aspnet_Applications"><EntityTypeMapping TypeName="endnoteModel.aspnet_Applications"><MappingFragment StoreEntitySet="aspnet_Applications">
+            <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+            <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership"><EntityTypeMapping TypeName="endnoteModel.aspnet_Membership"><MappingFragment StoreEntitySet="aspnet_Membership">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+            <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+            <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+            <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+            <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+            <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+            <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+            <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+            <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+            <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+            <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+            <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+            <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+            <ScalarProperty Name="Comment" ColumnName="Comment" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Paths"><EntityTypeMapping TypeName="endnoteModel.aspnet_Paths"><MappingFragment StoreEntitySet="aspnet_Paths">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="Path" ColumnName="Path" />
+            <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationAllUsers"><EntityTypeMapping TypeName="endnoteModel.aspnet_PersonalizationAllUsers"><MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationPerUser"><EntityTypeMapping TypeName="endnoteModel.aspnet_PersonalizationPerUser"><MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Profile"><EntityTypeMapping TypeName="endnoteModel.aspnet_Profile"><MappingFragment StoreEntitySet="aspnet_Profile">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+            <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+            <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles"><EntityTypeMapping TypeName="endnoteModel.aspnet_Roles"><MappingFragment StoreEntitySet="aspnet_Roles">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_SchemaVersions"><EntityTypeMapping TypeName="endnoteModel.aspnet_SchemaVersions"><MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+            <ScalarProperty Name="Feature" ColumnName="Feature" />
+            <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+            <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users"><EntityTypeMapping TypeName="endnoteModel.aspnet_Users"><MappingFragment StoreEntitySet="aspnet_Users">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+            <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+            <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+            <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_WebEvent_Events"><EntityTypeMapping TypeName="endnoteModel.aspnet_WebEvent_Events"><MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+            <ScalarProperty Name="EventId" ColumnName="EventId" />
+            <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+            <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+            <ScalarProperty Name="EventType" ColumnName="EventType" />
+            <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+            <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+            <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+            <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+            <ScalarProperty Name="Message" ColumnName="Message" />
+            <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+            <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+            <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+            <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+            <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+            <ScalarProperty Name="Details" ColumnName="Details" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="NotebookInfo"><EntityTypeMapping TypeName="endnoteModel.NotebookInfo"><MappingFragment StoreEntitySet="NotebookInfo">
+            <ScalarProperty Name="NotebookId" ColumnName="NotebookId" />
+            <ScalarProperty Name="NotebookName" ColumnName="NotebookName" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="NoteInfo"><EntityTypeMapping TypeName="endnoteModel.NoteInfo"><MappingFragment StoreEntitySet="NoteInfo">
+            <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="NoteContent" ColumnName="NoteContent" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="NotebookId" ColumnName="NotebookId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="NoteShare"><EntityTypeMapping TypeName="endnoteModel.NoteShare"><MappingFragment StoreEntitySet="NoteShare">
+            <ScalarProperty Name="NotebookId" ColumnName="NotebookId" />
+            <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="endnoteModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="FriendInfo">
+            <EntityTypeMapping TypeName="endnoteModel.FriendInfo">
+              <MappingFragment StoreEntitySet="FriendInfo">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserID2" ColumnName="UserID2" />
+                <ScalarProperty Name="UserID1" ColumnName="UserID1" />
+                <ScalarProperty Name="FriendInfoID" ColumnName="FriendInfoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="endnote">
+        <EntityTypeShape EntityType="endnoteModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="8.25" Height="2.2966927083333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_Membership" Width="1.5" PointX="3" PointY="6" Height="4.8259895833333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_Paths" Width="1.5" PointX="3" PointY="12.5" Height="2.1280729166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="12.75" Height="1.6222135416666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="9.5" Height="2.1280729166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_Profile" Width="1.5" PointX="10.5" PointY="10.625" Height="1.9594531249999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_Roles" Width="1.5" PointX="3" PointY="15.375" Height="2.1280729166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4535937499999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="11.25" Height="3.3084114583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" Height="3.4770312500000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.NotebookInfo" Width="1.5" PointX="10.5" PointY="13.375" Height="1.7908333333333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.NoteInfo" Width="1.5" PointX="12.75" PointY="12.125" Height="2.1280729166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="endnoteModel.NoteShare" Width="1.5" PointX="4.75" PointY="0.75" Height="1.6222135416666674" IsExpanded="true" />
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Me__Appli__239E4DCF" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.3983463541666659" />
+          <ConnectorPoint PointX="3" PointY="9.3983463541666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Pa__Appli__5CD6CB2B" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="10.546692708333332" />
+          <ConnectorPoint PointX="1.5" PointY="13.564036458333334" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="13.564036458333334" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="13.564036458333334" />
+          <ConnectorPoint PointX="3" PointY="13.564036458333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Ro__Appli__45F365D3" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="10.546692708333332" />
+          <ConnectorPoint PointX="1.9062525" PointY="16.439036458333334" />
+          <ConnectorPoint PointX="3" PointY="16.439036458333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Us__Appli__0F975522" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.0937475" PointY="10.546692708333332" />
+          <ConnectorPoint PointX="1.0937475" PointY="12.064036458333334" />
+          <ConnectorPoint PointX="1.4166666666666667" PointY="12.064036458333334" />
+          <ConnectorPoint PointX="1.5833333333333333" PointY="12.064036458333334" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="12.064036458333334" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="12.064036458333334" />
+          <ConnectorPoint PointX="8.25" PointY="12.064036458333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Me__UserI__24927208" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="11.25" />
+          <ConnectorPoint PointX="9" PointY="7.71875" />
+          <ConnectorPoint PointX="4.5" PointY="7.71875" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Pe__PathI__6477ECF3" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="13.561106770833334" />
+          <ConnectorPoint PointX="5.25" PointY="13.561106770833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Pe__PathI__6A30C649" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="12.501152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="12.126152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="10.564036458333334" />
+          <ConnectorPoint PointX="5.25" PointY="10.564036458333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Pe__UserI__6B24EA82" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.25" PointY="11.439036458333334" />
+          <ConnectorPoint PointX="6.75" PointY="11.439036458333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK__aspnet_Pr__UserI__3A81B327" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="11.9172265625" />
+          <ConnectorPoint PointX="10.5" PointY="11.9172265625" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK_NotebookInfo_aspnet_Users1" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="14.135325520833334" />
+          <ConnectorPoint PointX="10.5" PointY="14.135325520833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK_NoteInfo_aspnet_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="12.9797265625" />
+          <ConnectorPoint PointX="12.75" PointY="12.9797265625" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK_NoteInfo_NotebookInfo" ManuallyRouted="false">
+          <ConnectorPoint PointX="12" PointY="13.814036458333334" />
+          <ConnectorPoint PointX="12.75" PointY="13.814036458333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.aspnet_UsersInRoles" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.439036458333334" />
+          <ConnectorPoint PointX="8.5104141666666653" PointY="16.439036458333334" />
+          <ConnectorPoint PointX="8.6770808333333331" PointY="16.439036458333334" />
+          <ConnectorPoint PointX="9" PointY="16.439036458333334" />
+          <ConnectorPoint PointX="9" PointY="14.895651041666666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="endnoteModel.FriendInfo" Width="1.5" PointX="10.5" PointY="16.125" Height="1.959453124999996" />
+        <AssociationConnector Association="endnoteModel.FK_FriendInfo_aspnet_Users" >
+          <ConnectorPoint PointX="9.4062525" PointY="14.895651041666666" />
+          <ConnectorPoint PointX="9.4062525" PointY="17.261744791666665" />
+          <ConnectorPoint PointX="10.5" PointY="17.261744791666665" />
+        </AssociationConnector>
+        <AssociationConnector Association="endnoteModel.FK_FriendInfo_aspnet_Users1" >
+          <ConnectorPoint PointX="8.5937475" PointY="14.895651041666666" />
+          <ConnectorPoint PointX="8.5937475" PointY="16.819138125" />
+          <ConnectorPoint PointX="9.3229191666666669" PointY="16.819138125" />
+          <ConnectorPoint PointX="9.4895858333333347" PointY="16.819138125" />
+          <ConnectorPoint PointX="10.5" PointY="16.819138125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[ItemTag] (
+    [OwnerID] UNIQUEIDENTIFIER NOT NULL,
+    [Tag]     VARCHAR (50)     NOT NULL,
+    [ItemID]  UNIQUEIDENTIFIER NOT NULL
+);
+

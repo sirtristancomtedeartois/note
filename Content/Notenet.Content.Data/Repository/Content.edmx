@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Notenet.Content.Data.Repository.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="NotenetContentDataRepositoryStoreContainer">
+          <EntitySet Name="Item" EntityType="Notenet.Content.Data.Repository.Store.Item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemHistory" EntityType="Notenet.Content.Data.Repository.Store.ItemHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemPermission" EntityType="Notenet.Content.Data.Repository.Store.ItemPermission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemPermissionSpecificUser" EntityType="Notenet.Content.Data.Repository.Store.ItemPermissionSpecificUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemTag" EntityType="Notenet.Content.Data.Repository.Store.ItemTag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemType" EntityType="Notenet.Content.Data.Repository.Store.ItemType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Item_ItemType" Association="Notenet.Content.Data.Repository.Store.FK_Item_ItemType">
+            <End Role="ItemType" EntitySet="ItemType" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemHistory_Item" Association="Notenet.Content.Data.Repository.Store.FK_ItemHistory_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemHistory" EntitySet="ItemHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPermission_Item" Association="Notenet.Content.Data.Repository.Store.FK_ItemPermission_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemPermission" EntitySet="ItemPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPermissionSpecificUser_Item" Association="Notenet.Content.Data.Repository.Store.FK_ItemPermissionSpecificUser_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemPermissionSpecificUser" EntitySet="ItemPermissionSpecificUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTag_Item" Association="Notenet.Content.Data.Repository.Store.FK_ItemTag_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemTag" EntitySet="ItemTag" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ItemTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="ExternalUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="InternalUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ItemTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ItemAbstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ItemText" Type="ntext" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemHistory">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="RevisionDate" />
+          </Key>
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RevisionDate" Type="datetime" Nullable="false" />
+          <Property Name="ItemTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ItemAbstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ItemText" Type="ntext" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemPermission">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="RoleType" />
+          </Key>
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleType" Type="tinyint" Nullable="false" />
+          <Property Name="RolePermission" Type="tinyint" Nullable="false" />
+          <Property Name="HasSpecificUserIDPermission" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemPermissionSpecificUser">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserPermission" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemTag">
+          <Key>
+            <PropertyRef Name="Tag" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="OwnerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Tag" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="ItemTypeName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Item_ItemType">
+          <End Role="ItemType" Type="Notenet.Content.Data.Repository.Store.ItemType" Multiplicity="1" />
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Store.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="ItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemHistory_Item">
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Store.Item" Multiplicity="1" />
+          <End Role="ItemHistory" Type="Notenet.Content.Data.Repository.Store.ItemHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemHistory">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPermission_Item">
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Store.Item" Multiplicity="1" />
+          <End Role="ItemPermission" Type="Notenet.Content.Data.Repository.Store.ItemPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemPermission">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPermissionSpecificUser_Item">
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Store.Item" Multiplicity="1" />
+          <End Role="ItemPermissionSpecificUser" Type="Notenet.Content.Data.Repository.Store.ItemPermissionSpecificUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemPermissionSpecificUser">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTag_Item">
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Store.Item" Multiplicity="1" />
+          <End Role="ItemTag" Type="Notenet.Content.Data.Repository.Store.ItemTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemTag">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PutItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ItemID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ItemTypeID" Type="tinyint" Mode="In" />
+          <Parameter Name="ExternalUrl" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="InternalUrl" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ItemTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="ItemAbstract" Type="nvarchar" Mode="In" />
+          <Parameter Name="ItemText" Type="ntext" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="LastUpdated" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Notenet.Content.Data.Repository" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ContentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Items" EntityType="Notenet.Content.Data.Repository.Item" />
+          <EntitySet Name="ItemHistories" EntityType="Notenet.Content.Data.Repository.ItemHistory" />
+          <EntitySet Name="ItemPermissions" EntityType="Notenet.Content.Data.Repository.ItemPermission" />
+          <EntitySet Name="ItemPermissionSpecificUsers" EntityType="Notenet.Content.Data.Repository.ItemPermissionSpecificUser" />
+          <EntitySet Name="ItemTags" EntityType="Notenet.Content.Data.Repository.ItemTag" />
+          <EntitySet Name="ItemTypes" EntityType="Notenet.Content.Data.Repository.ItemType" />
+          <AssociationSet Name="FK_Item_ItemType" Association="Notenet.Content.Data.Repository.FK_Item_ItemType">
+            <End Role="ItemType" EntitySet="ItemTypes" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemHistory_Item" Association="Notenet.Content.Data.Repository.FK_ItemHistory_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ItemHistory" EntitySet="ItemHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPermission_Item" Association="Notenet.Content.Data.Repository.FK_ItemPermission_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ItemPermission" EntitySet="ItemPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPermissionSpecificUser_Item" Association="Notenet.Content.Data.Repository.FK_ItemPermissionSpecificUser_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ItemPermissionSpecificUser" EntitySet="ItemPermissionSpecificUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTag_Item" Association="Notenet.Content.Data.Repository.FK_ItemTag_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ItemTag" EntitySet="ItemTags" />
+          </AssociationSet>
+          <FunctionImport Name="PutItem" ReturnType="Collection(Int32)">
+            <Parameter Name="ItemID" Mode="In" Type="Guid" />
+            <Parameter Name="ItemTypeID" Mode="In" Type="Byte" />
+            <Parameter Name="ExternalUrl" Mode="In" Type="String" />
+            <Parameter Name="InternalUrl" Mode="In" Type="String" />
+            <Parameter Name="ItemTitle" Mode="In" Type="String" />
+            <Parameter Name="ItemAbstract" Mode="In" Type="String" />
+            <Parameter Name="ItemText" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="LastUpdated" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <Property Name="ItemTypeID" Type="Byte" Nullable="false" />
+          <Property Name="ExternalUrl" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="InternalUrl" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ItemTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ItemAbstract" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ItemText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ItemType" Relationship="Notenet.Content.Data.Repository.FK_Item_ItemType" FromRole="Item" ToRole="ItemType" />
+          <NavigationProperty Name="ItemHistories" Relationship="Notenet.Content.Data.Repository.FK_ItemHistory_Item" FromRole="Item" ToRole="ItemHistory" />
+          <NavigationProperty Name="ItemPermissions" Relationship="Notenet.Content.Data.Repository.FK_ItemPermission_Item" FromRole="Item" ToRole="ItemPermission" />
+          <NavigationProperty Name="ItemPermissionSpecificUsers" Relationship="Notenet.Content.Data.Repository.FK_ItemPermissionSpecificUser_Item" FromRole="Item" ToRole="ItemPermissionSpecificUser" />
+          <NavigationProperty Name="ItemTags" Relationship="Notenet.Content.Data.Repository.FK_ItemTag_Item" FromRole="Item" ToRole="ItemTag" />
+        </EntityType>
+        <EntityType Name="ItemHistory">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="RevisionDate" />
+          </Key>
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <Property Name="RevisionDate" Type="DateTime" Nullable="false" />
+          <Property Name="ItemTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ItemAbstract" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ItemText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Notenet.Content.Data.Repository.FK_ItemHistory_Item" FromRole="ItemHistory" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="ItemPermission">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="RoleType" />
+          </Key>
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <Property Name="RoleType" Type="Byte" Nullable="false" />
+          <Property Name="RolePermission" Type="Byte" Nullable="false" />
+          <Property Name="HasSpecificUserIDPermission" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Notenet.Content.Data.Repository.FK_ItemPermission_Item" FromRole="ItemPermission" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="ItemPermissionSpecificUser">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="UserPermission" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Notenet.Content.Data.Repository.FK_ItemPermissionSpecificUser_Item" FromRole="ItemPermissionSpecificUser" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="ItemTag">
+          <Key>
+            <PropertyRef Name="Tag" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="OwnerID" Type="Guid" Nullable="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Notenet.Content.Data.Repository.FK_ItemTag_Item" FromRole="ItemTag" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="Byte" Nullable="false" />
+          <Property Name="ItemTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Items" Relationship="Notenet.Content.Data.Repository.FK_Item_ItemType" FromRole="ItemType" ToRole="Item" />
+        </EntityType>
+        <Association Name="FK_Item_ItemType">
+          <End Role="ItemType" Type="Notenet.Content.Data.Repository.ItemType" Multiplicity="1" />
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="ItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemHistory_Item">
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Item" Multiplicity="1" />
+          <End Role="ItemHistory" Type="Notenet.Content.Data.Repository.ItemHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemHistory">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPermission_Item">
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Item" Multiplicity="1" />
+          <End Role="ItemPermission" Type="Notenet.Content.Data.Repository.ItemPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemPermission">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPermissionSpecificUser_Item">
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Item" Multiplicity="1" />
+          <End Role="ItemPermissionSpecificUser" Type="Notenet.Content.Data.Repository.ItemPermissionSpecificUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemPermissionSpecificUser">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTag_Item">
+          <End Role="Item" Type="Notenet.Content.Data.Repository.Item" Multiplicity="1" />
+          <End Role="ItemTag" Type="Notenet.Content.Data.Repository.ItemTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemTag">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NotenetContentDataRepositoryStoreContainer" CdmEntityContainer="ContentEntities">
+          <EntitySetMapping Name="Items"><EntityTypeMapping TypeName="Notenet.Content.Data.Repository.Item"><MappingFragment StoreEntitySet="Item">
+            <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+            <ScalarProperty Name="ExternalUrl" ColumnName="ExternalUrl" />
+            <ScalarProperty Name="InternalUrl" ColumnName="InternalUrl" />
+            <ScalarProperty Name="ItemTitle" ColumnName="ItemTitle" />
+            <ScalarProperty Name="ItemAbstract" ColumnName="ItemAbstract" />
+            <ScalarProperty Name="ItemText" ColumnName="ItemText" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemHistories"><EntityTypeMapping TypeName="Notenet.Content.Data.Repository.ItemHistory"><MappingFragment StoreEntitySet="ItemHistory">
+            <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            <ScalarProperty Name="RevisionDate" ColumnName="RevisionDate" />
+            <ScalarProperty Name="ItemTitle" ColumnName="ItemTitle" />
+            <ScalarProperty Name="ItemAbstract" ColumnName="ItemAbstract" />
+            <ScalarProperty Name="ItemText" ColumnName="ItemText" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemPermissions"><EntityTypeMapping TypeName="Notenet.Content.Data.Repository.ItemPermission"><MappingFragment StoreEntitySet="ItemPermission">
+            <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+            <ScalarProperty Name="RolePermission" ColumnName="RolePermission" />
+            <ScalarProperty Name="HasSpecificUserIDPermission" ColumnName="HasSpecificUserIDPermission" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemPermissionSpecificUsers"><EntityTypeMapping TypeName="Notenet.Content.Data.Repository.ItemPermissionSpecificUser"><MappingFragment StoreEntitySet="ItemPermissionSpecificUser">
+            <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="UserPermission" ColumnName="UserPermission" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemTags"><EntityTypeMapping TypeName="Notenet.Content.Data.Repository.ItemTag"><MappingFragment StoreEntitySet="ItemTag">
+            <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+            <ScalarProperty Name="Tag" ColumnName="Tag" />
+            <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemTypes"><EntityTypeMapping TypeName="Notenet.Content.Data.Repository.ItemType"><MappingFragment StoreEntitySet="ItemType">
+            <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+            <ScalarProperty Name="ItemTypeName" ColumnName="ItemTypeName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PutItem" FunctionName="Notenet.Content.Data.Repository.Store.PutItem" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Content">
+        <EntityTypeShape EntityType="Notenet.Content.Data.Repository.Item" Width="1.5" PointX="3" PointY="4.625" Height="3.7109993489583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Notenet.Content.Data.Repository.ItemHistory" Width="1.5" PointX="5.25" PointY="1.375" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Notenet.Content.Data.Repository.ItemPermission" Width="1.5" PointX="5.25" PointY="4.5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Notenet.Content.Data.Repository.ItemPermissionSpecificUser" Width="1.5" PointX="5.25" PointY="7.125" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Notenet.Content.Data.Repository.ItemTag" Width="1.5" PointX="5.25" PointY="9.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Notenet.Content.Data.Repository.ItemType" Width="1.5" PointX="0.75" PointY="5.625" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="Notenet.Content.Data.Repository.FK_Item_ItemType" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.422841796875" />
+          <ConnectorPoint PointX="3" PointY="6.422841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Notenet.Content.Data.Repository.FK_ItemHistory_Item" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="4.625" />
+          <ConnectorPoint PointX="3.75" PointY="2.5574446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="2.5574446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Notenet.Content.Data.Repository.FK_ItemPermission_Item" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.5526432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="5.5526432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Notenet.Content.Data.Repository.FK_ItemPermissionSpecificUser_Item" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.7304996744791667" />
+          <ConnectorPoint PointX="5.25" PointY="7.7304996744791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Notenet.Content.Data.Repository.FK_ItemTag_Item" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="8.3359993489583335" />
+          <ConnectorPoint PointX="3.75" PointY="10.643992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="10.643992513020834" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

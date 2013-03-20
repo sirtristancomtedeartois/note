@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FeedModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FeedModelStoreContainer">
+          <EntitySet Name="Item" EntityType="FeedModel.Store.Item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemTag" EntityType="FeedModel.Store.ItemTag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemType" EntityType="FeedModel.Store.ItemType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Item_ItemType" Association="FeedModel.Store.FK_Item_ItemType">
+            <End Role="ItemType" EntitySet="ItemType" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTag_Item" Association="FeedModel.Store.FK_ItemTag_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemTag" EntitySet="ItemTag" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ItemTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="ExternalUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ItemTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ItemAbstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ItemText" Type="ntext" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemTag">
+          <Key>
+            <PropertyRef Name="Tag" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="OwnerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Tag" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ItemID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="ItemTypeName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Item_ItemType">
+          <End Role="ItemType" Type="FeedModel.Store.ItemType" Multiplicity="1" />
+          <End Role="Item" Type="FeedModel.Store.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="ItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTag_Item">
+          <End Role="Item" Type="FeedModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemTag" Type="FeedModel.Store.ItemTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemTag">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FeedModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FeedEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Item" EntityType="FeedModel.Item" />
+          <EntitySet Name="ItemTag" EntityType="FeedModel.ItemTag" />
+          <EntitySet Name="ItemType" EntityType="FeedModel.ItemType" />
+          <AssociationSet Name="FK_Item_ItemType" Association="FeedModel.FK_Item_ItemType">
+            <End Role="ItemType" EntitySet="ItemType" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTag_Item" Association="FeedModel.FK_ItemTag_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemTag" EntitySet="ItemTag" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <Property Name="ItemTypeID" Type="Byte" Nullable="false" />
+          <Property Name="ExternalUrl" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ItemTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ItemAbstract" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ItemText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ItemType" Relationship="FeedModel.FK_Item_ItemType" FromRole="Item" ToRole="ItemType" />
+          <NavigationProperty Name="ItemTag" Relationship="FeedModel.FK_ItemTag_Item" FromRole="Item" ToRole="ItemTag" />
+        </EntityType>
+        <EntityType Name="ItemTag">
+          <Key>
+            <PropertyRef Name="Tag" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="OwnerID" Type="Guid" Nullable="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ItemID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="FeedModel.FK_ItemTag_Item" FromRole="ItemTag" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="Byte" Nullable="false" />
+          <Property Name="ItemTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Item" Relationship="FeedModel.FK_Item_ItemType" FromRole="ItemType" ToRole="Item" />
+        </EntityType>
+        <Association Name="FK_Item_ItemType">
+          <End Role="ItemType" Type="FeedModel.ItemType" Multiplicity="1" />
+          <End Role="Item" Type="FeedModel.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ItemTypeID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="ItemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTag_Item">
+          <End Role="Item" Type="FeedModel.Item" Multiplicity="1" />
+          <End Role="ItemTag" Type="FeedModel.ItemTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemTag">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FeedModelStoreContainer" CdmEntityContainer="FeedEntities">
+          <EntitySetMapping Name="Item"><EntityTypeMapping TypeName="FeedModel.Item"><MappingFragment StoreEntitySet="Item">
+            <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+            <ScalarProperty Name="ExternalUrl" ColumnName="ExternalUrl" />
+            <ScalarProperty Name="ItemTitle" ColumnName="ItemTitle" />
+            <ScalarProperty Name="ItemAbstract" ColumnName="ItemAbstract" />
+            <ScalarProperty Name="ItemText" ColumnName="ItemText" />
+            <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+            <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemTag"><EntityTypeMapping TypeName="FeedModel.ItemTag"><MappingFragment StoreEntitySet="ItemTag">
+            <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+            <ScalarProperty Name="Tag" ColumnName="Tag" />
+            <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ItemType"><EntityTypeMapping TypeName="FeedModel.ItemType"><MappingFragment StoreEntitySet="ItemType">
+            <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+            <ScalarProperty Name="ItemTypeName" ColumnName="ItemTypeName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Feed">
+        <EntityTypeShape EntityType="FeedModel.Item" Width="1.5" PointX="3" PointY="1" Height="2.6339322916666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeedModel.ItemTag" Width="1.5" PointX="5.25" PointY="1.5" Height="1.6222135416666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="FeedModel.ItemType" Width="1.5" PointX="0.75" PointY="1.5" Height="1.4535937499999996" IsExpanded="true" />
+        <AssociationConnector Association="FeedModel.FK_Item_ItemType" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.226796875" />
+          <ConnectorPoint PointX="3" PointY="2.226796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="FeedModel.FK_ItemTag_Item" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.3111067708333337" />
+          <ConnectorPoint PointX="5.25" PointY="2.3111067708333337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<endnote.Lib.Friend>
+           
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewBag.Title = "Fans";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("a", ".demo").button();
+    });
+
+
+    $(function () {
+        $("#dialog-form").dialog({
+            autoOpen: false,
+            height: 160,
+            width: 350,
+            modal: true,
+            resizable: false,
+            buttons: {
+                "确定": function () {
+                    $("#removefans" + $("#userId").val()).click();
+                    $(this).dialog("close");
+                },
+                "取消": function () {
+                    $(this).dialog("close");
+                }
+            },
+            close: function () {
+
+            }
+        });
+    });
+
+    function removeFans(userId) {
+        $("#userId").val(userId);
+        $("#dialog-form").dialog("open");
+    }
+
+</script>
+
+<h2>Fans</h2>
+
+@Html.Partial("_Fans", this.Model)
+
+<div id="dialog-form">
+	@using (Html.BeginForm("RemoveFans", "Friend", new { userId = string.Empty }))
+    {
+        <span>确定移除粉丝?</span>
+        <input type="hidden" id="userId" />
+	}
+</div>

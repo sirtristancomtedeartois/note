@@ -1,0 +1,20 @@
+﻿@model endnote.Lib.aspnet_Users
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User Info</legend>
+
+    <div class="display-label">Nick Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserInfo.NickName)
+    </div>
+</fieldset>
+<p>
+    
+</p>

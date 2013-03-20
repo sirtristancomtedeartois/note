@@ -1,0 +1,34 @@
+﻿@model endnote.Lib.Offer
+
+@using (Html.BeginForm("Offers", "User"))
+{
+    <fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OfferName, "OfferName")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OfferName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description, "Description")
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Description, new { @class = "text ui-widget-content ui-corner-all", rows = 3, cols = 63, style = "overflow: hidden" })
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnitPrice, "UnitPrice")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnitPrice)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Amount, "Amount")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Amount)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}

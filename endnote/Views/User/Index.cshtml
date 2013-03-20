@@ -1,0 +1,40 @@
+﻿@model IEnumerable<System.Data.Objects.DataClasses.EntityObject>
+
+@{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+@foreach (var item in Model)
+{
+    <tr>
+        @if (item is endnote.Lib.Blog)
+        {
+            <td>
+                @Html.ActionLink(((endnote.Lib.Blog)item).aspnet_Users.UserInfo.NickName, "Profiles", new { userId = ((endnote.Lib.Blog)item).UserId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ((endnote.Lib.Blog)item).Subject)
+            </td>
+        }
+        @if (item is endnote.Lib.Offer)
+        {
+            <td>
+                @Html.ActionLink(((endnote.Lib.Offer)item).aspnet_Users.UserInfo.NickName, "Profiles", new { userId = ((endnote.Lib.Offer)item).UserId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => ((endnote.Lib.Offer)item).OfferName)
+            </td>
+            <td>
+                @using (Html.BeginForm("BuyOffer", "User", new { id = ((endnote.Lib.Offer)item).OfferId }))
+                {
+                    <input type="submit" value="Buy" /> 
+                }
+            </td>
+        }
+    </tr>
+}
+</table>

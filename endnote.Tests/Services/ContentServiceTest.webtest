@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="ContentServiceTest" Id="0213dcda-db1b-4c6b-9a8b-7c390b605efc" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="" StopOnError="False" RecordedResultFile="ContentServiceTest.480007f2-b1dd-403d-b95f-1bd80a9c6c9b.rec.webtestresult">
+  <Items>
+    <Request Method="GET" Guid="488c42d5-4308-4b3d-b2cf-fba06cd1da98" Version="1.1" Url="http://content.myxyz.com:8009/Content.svc/GetUserProfile" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="userId" Value="aaf9a5a7-1f18-4a2d-b108-3ba3a978bdf6" RecordedValue="" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+  </Items>
+</WebTest>

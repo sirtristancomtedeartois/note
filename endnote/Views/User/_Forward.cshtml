@@ -1,0 +1,8 @@
+﻿@model endnote.Lib.NotebookInfo
+
+<div id="dialog-form" title="创建Notebook">
+    @using (Ajax.BeginForm("NewNotebook", "User", new { }, new AjaxOptions{ UpdateTargetId = "tblProfiles", HttpMethod = "GET" }, new { id="formNewNotebook" }))
+    {
+        @Html.TextAreaFor(model => model.NotebookName, new { @class = "text ui-widget-content ui-corner-all", rows = 3, cols = 63, style = "overflow: hidden" })
+    }
+</div>
