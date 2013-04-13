@@ -169,6 +169,22 @@ namespace Notenet.Content.Data.Repository
             }
         }
         private ObjectSet<ItemType> _ItemTypes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TagTree> TagTrees
+        {
+            get
+            {
+                if ((_TagTrees == null))
+                {
+                    _TagTrees = base.CreateObjectSet<TagTree>("TagTrees");
+                }
+                return _TagTrees;
+            }
+        }
+        private ObjectSet<TagTree> _TagTrees;
 
         #endregion
         #region AddTo Methods
@@ -219,6 +235,14 @@ namespace Notenet.Content.Data.Repository
         public void AddToItemTypes(ItemType itemType)
         {
             base.AddObject("ItemTypes", itemType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TagTrees EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTagTrees(TagTree tagTree)
+        {
+            base.AddObject("TagTrees", tagTree);
         }
 
         #endregion
@@ -1543,6 +1567,85 @@ namespace Notenet.Content.Data.Repository
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Notenet.Content.Data.Repository", Name="TagTree")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TagTree : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new TagTree object.
+        /// </summary>
+        /// <param name="tag">Initial value of the Tag property.</param>
+        public static TagTree CreateTagTree(global::System.String tag)
+        {
+            TagTree tagTree = new TagTree();
+            tagTree.Tag = tag;
+            return tagTree;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Tag
+        {
+            get
+            {
+                return _Tag;
+            }
+            set
+            {
+                if (_Tag != value)
+                {
+                    OnTagChanging(value);
+                    ReportPropertyChanging("Tag");
+                    _Tag = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Tag");
+                    OnTagChanged();
+                }
+            }
+        }
+        private global::System.String _Tag;
+        partial void OnTagChanging(global::System.String value);
+        partial void OnTagChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Parent
+        {
+            get
+            {
+                return _Parent;
+            }
+            set
+            {
+                OnParentChanging(value);
+                ReportPropertyChanging("Parent");
+                _Parent = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Parent");
+                OnParentChanged();
+            }
+        }
+        private global::System.String _Parent;
+        partial void OnParentChanging(global::System.String value);
+        partial void OnParentChanged();
+
+        #endregion
+    
     }
 
     #endregion
