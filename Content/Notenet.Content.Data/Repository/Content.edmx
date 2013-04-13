@@ -12,6 +12,7 @@
           <EntitySet Name="ItemPermissionSpecificUser" EntityType="Notenet.Content.Data.Repository.Store.ItemPermissionSpecificUser" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ItemTag" EntityType="Notenet.Content.Data.Repository.Store.ItemTag" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ItemType" EntityType="Notenet.Content.Data.Repository.Store.ItemType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TagTree" EntityType="Notenet.Content.Data.Repository.Store.TagTree" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_Item_ItemType" Association="Notenet.Content.Data.Repository.Store.FK_Item_ItemType">
             <End Role="ItemType" EntitySet="ItemType" />
             <End Role="Item" EntitySet="Item" />
@@ -93,6 +94,13 @@
           </Key>
           <Property Name="ItemTypeID" Type="tinyint" Nullable="false" />
           <Property Name="ItemTypeName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TagTree">
+          <Key>
+            <PropertyRef Name="Tag" />
+          </Key>
+          <Property Name="Tag" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Parent" Type="varchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK_Item_ItemType">
           <End Role="ItemType" Type="Notenet.Content.Data.Repository.Store.ItemType" Multiplicity="1" />
@@ -207,6 +215,7 @@
             <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
             <Parameter Name="LastUpdated" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="TagTrees" EntityType="Notenet.Content.Data.Repository.TagTree" />
         </EntityContainer>
         <EntityType Name="Item">
           <Key>
@@ -339,6 +348,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TagTree">
+          <Key>
+            <PropertyRef Name="Tag" />
+          </Key>
+          <Property Type="String" Name="Tag" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Parent" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -385,6 +401,14 @@
             <ScalarProperty Name="ItemTypeName" ColumnName="ItemTypeName" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PutItem" FunctionName="Notenet.Content.Data.Repository.Store.PutItem" />
+          <EntitySetMapping Name="TagTrees">
+            <EntityTypeMapping TypeName="Notenet.Content.Data.Repository.TagTree">
+              <MappingFragment StoreEntitySet="TagTree">
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -434,6 +458,7 @@
           <ConnectorPoint PointX="3.75" PointY="10.643992513020834" />
           <ConnectorPoint PointX="5.25" PointY="10.643992513020834" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Notenet.Content.Data.Repository.TagTree" Width="1.5" PointX="0.75" PointY="0.75" Height="1.2849739583333317" />
       </Diagram>
     </Diagrams>
   </Designer>
