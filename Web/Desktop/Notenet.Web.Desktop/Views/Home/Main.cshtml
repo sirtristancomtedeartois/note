@@ -1,199 +1,150 @@
 ﻿@{
     ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_LayoutLoggedIn.cshtml";
 }
 
-<h2>Main</h2>
 
-@*<script type="text/javascript" src="../jquery.js"></script>*@
-<script type="text/javascript" src="../jquery.ui.all.js"></script>
-<script type="text/javascript" src="../jquery.layout.js"></script>
-
-<script type="text/javascript">
-
-	var myLayout; // a var is required because this page utilizes: myLayout.allowOverflow() method
-
-	$(document).ready(function () {
-	    myLayout = $('body').layout({
-	        // enable showOverflow on west-pane so popups will overlap north pane
-	        west__showOverflowOnHover: true
-
-	        //,	west__fxSettings_open: { easing: "easeOutBounce", duration: 750 }
-	    });
-	});
-
-</script>
-
-
-<style type="text/css">
-/**
-	*	Basic Layout Theme
-	* 
-	*	This theme uses the default layout class-names for all classes
-	*	Add any 'custom class-names', from options: paneClass, resizerClass, togglerClass
-	*/
-
-.ui-layout-pane { /* all 'panes' */ 
-	background: #FFF; 
-	border: 1px solid #BBB; 
-	padding: 10px; 
-	overflow: auto;
-} 
-
-.ui-layout-resizer { /* all 'resizer-bars' */ 
-	background: #DDD; 
-} 
-
-.ui-layout-toggler { /* all 'toggler-buttons' */ 
-	background: #AAA; 
-} 
-
-
-</style>
-
-
-<style type="text/css">
-/**
-	*	ALL CSS below is only for cosmetic and demo purposes
-	*	Nothing here affects the appearance of the layout
-	*/
-
-body {
-	font-family: Arial, sans-serif;
-	font-size: 0.85em;
-}
-p {
-	margin: 1em 0;
-}
-
-/*
-	*	Rules below are for simulated drop-down/pop-up lists
-	*/
-
-ul {
-	/* rules common to BOTH inner and outer UL */
-	z-index:	100000;
-	margin:		1ex 0;
-	padding:	0;
-	list-style:	none;
-	cursor:		pointer;
-	border:		1px solid Black;
-	/* rules for outer UL only */
-	width:		15ex;
-	position:	relative;
-}
-ul li {
-	background-color: #EEE;
-	padding: 0.15em 1em 0.3em 5px;
-}
-ul ul {
-	display:	none;
-	position:	absolute;
-	width:		100%;
-	left:		-1px;
-	/* Pop-Up */
-	bottom:		0;
-	margin:		0;
-	margin-bottom: 1.55em;
-}
-.ui-layout-north ul ul {
-	/* Drop-Down */
-	bottom:		auto;
-	margin:		0;
-	margin-top:	1.45em;
-}
-ul ul li		{ padding: 3px 1em 3px 5px; }
-ul ul li:hover	{ background-color: #FF9; }
-ul li:hover ul	{ display:	block; background-color: #EEE; }
-
-</style>
-
-
-<!-- manually attach allowOverflow method to pane -->
-<div class="ui-layout-north" onmouseover="myLayout.allowOverflow('north')" onmouseout="myLayout.resetOverflow(this)">
-	This is the north pane, closable, slidable and resizable
-
-	<ul>
-		<li>
-			<ul>
-				<li>one</li>
-				<li>two</li>
-				<li>three</li>
-				<li>four</li>
-				<li>five</li>
-			</ul>
-			Drop-Down <!-- put this below so IE and FF render the same! -->
-		</li>
-	</ul>
-
+ <div id="boxfile-0" class="articlebox" style="position:absolute; left:0; width:340px; height:330px; background-color:transparent">
+                <div class="articletitle">168，意大利中部的三个山城【原创】</div>
+                <div class="graytext articlefrom">5月14日 23:00 |  来自：<span>悠游微尘的博客</span> </div>
+                <div class="articleimg"><img style="width:340px; height:270px;" src="http://pic.qqmail.com/imagecache/20130514/7388996c05803660e3dd103dd588022f.png"></div>
+                <div class="articlesummary">&nbsp; 
+在意大利的中部东北屏山，西南临海的三角形区域叫托斯卡纳大区，该区东部和北部是山地，中部和南部是起伏的丘陵，到处可见葡萄园和橄榄树林，这里是欧洲文艺复兴的发源地，除了佛罗伦萨这个文艺复兴的摇篮外，其他一些小城镇也是名胜古迹遍布，是意大利的重点旅游区。我们已经游览了卢卡、比萨和佛罗伦萨，接着我们要去称为古塔之城的圣吉米尼亚诺。
+圣吉米尼亚诺不通火车，我们是坐大巴去的，路上车行时间约1小时1刻钟。这</div>
+            </div>
+<div id="boxfile-1" class="articlebox" style="position:absolute; left:0; top:330px; width:340px; height:330px; background-color:transparent">
+    <div class="articletitle">一岁一枯荣</div>
+    <div class="graytext articlefrom">5月15日 13:35 |  来自：<span>色界频道</span> </div>
+    <div class="articleimg"><img style="width:340px; height:270px;" src="http://pic.qqmail.com/imagecache/20130515/43fa77a27c81db09cff0fa38c7b8e15f.png"></div>
+    <div class="articlesummary">On The Way To Xian Academy Of Fine Arts
+Tag 
+视界
+   
+&nbsp;&nbsp;分享这篇文章，或留下你的观点
+  
+我们猜你还喜欢：
+粽夏
+云南之行
+日本
+九份的小清新
+南国·小旖
+      
+MSN spaces搬家，给您一个更安全、更有保障的方案！</div>
 </div>
+<div id="boxfile-2" class="articlebox" style="position:absolute; left:360px; width:300px; height:220px; background-color:transparent">
+    <div class="articletitle">阿山饭店</div>
+    <div class="graytext articlefrom">5月15日 14:00 |  来自：<span>色界频道</span> </div>
+    <div class="articleimg"><img style="width:300px; height:160px;" src="http://pic.qqmail.com/imagecache/20130515/a8982bcbc80a643fd2641726f56fbfd0.png"></div>
+    <div class="articlesummary">&nbsp; &nbsp; &nbsp; &nbsp; 2013年3月，上海 阿山饭店
+&nbsp; &nbsp; &nbsp; &nbsp; 阿山老了，胡子都白了。
+&nbsp;
 
-<!-- allowOverflow auto-attached by option: west__showOverflowOnHover = true -->
-<div class="ui-layout-west">
-	This is the west pane, closable, slidable and resizable
+&nbsp;
 
-	<ul>
-		<li>
-			<ul>
-				<li>one</li>
-				<li>two</li>
-				<li>three</li>
-				<li>four</li>
-				<li>five</li>
-			</ul>
-			Pop-Up <!-- put this below so IE and FF render the same! -->
-		</li>
-	</ul>
+&nbsp;
 
-	<p><button onclick="myLayout.close('west')">Close Me</button></p>
+&nbsp;
 
-	<p><a href="#" onClick="showOptions(myLayout,'defaults.fxSettings_open');showOptions(myLayout,'west.fxSettings_close')">Show Options.Defaults</a></p>
-
+&nbsp;   Tag 
+视界
+   
+&nbsp;&nbsp;分享这篇文章，或留下你的观点
+  
+我们猜你还喜欢：
+看看风景
+粽夏
+云南之行
+日本
+九份的小清新
+      
+MSN spaces搬家，给您一个更安全、更有保障的方案！</div>
 </div>
+<div class="articlebox" style="position:absolute; left:360px; top:220px; width:300px; height:220px; background-color:transparent">
+    <div class="articletitle">【印尼巴厘岛】享受吧！饭祷爱</div>
+    <div class="graytext articlefrom">5月14日 12:55 |  来自：<span>色界频道</span> </div>
+    <div class="articleimg"><img style="width:300px; height:160px;" src="http://pic.qqmail.com/imagecache/20130514/4a737eea97eadb8d224e48453bbda7f7.png"></div>
+    <div class="articlesummary">
+（P1、美丽的金巴兰沙滩）
 
-<div class="ui-layout-south">
-	This is the south pane, closable, slidable and resizable &nbsp;
-	<button onclick="myLayout.toggle('north')">Toggle North Pane</button>
+（P2、绿树红屋的巴厘岛）
+
+朱莉娅·罗伯茨在2010年拍过一部片子《Eat，Pray，Love》，台湾翻译成《享受吧，一个人的旅行》。那个如梦似幻风光旖旎的印尼小岛，再次因为一部电影而走红。不用去意大利和印度，在巴厘岛上就可以“饭祷爱”一番。
+
+
+
+
+（P3、充满了色彩和线条的艺术岛）
+
+（P4、海边的Party）
+
+片中的女主角是一个周游全球的旅行作家，因为离婚的困扰游走在意大利，印度，印尼巴厘岛三个以</div>
 </div>
+<div class="articlebox" style="position:absolute; left:360px; top:440px; width:300px; height:220px; background-color:transparent">
+    <div class="articletitle">Dear Kimi.</div>
+    <div class="graytext articlefrom">5月14日 7:40 |  来自：<span>远游无处不销魂</span> </div>
+    <div class="articleimg" style="float:left"><img style="width:145px; height:160px;" src="http://pic.qqmail.com/imagecache/20130514/c91e2c85b962eb94baad5964fdefc5a8.png"></div>
+    <div class="articlesummary" style="height:154px">
 
-<div class="ui-layout-east">
-	This is the east pane, closable, slidable and resizable
 
-	<!-- attach allowOverflow method to this specific element -->
-	<ul onmouseover="myLayout.allowOverflow(this)" onmouseout="myLayout.resetOverflow('east')">
-		<li>
-			<ul>
-				<li>one</li>
-				<li>two</li>
-				<li>three</li>
-				<li>four</li>
-				<li>five</li>
-			</ul>
-			Pop-Up <!-- put this below so IE and FF render the same! -->
-		</li>
-	</ul>
 
-	<p><button onclick="myLayout.close('east')">Close Me</button></p>
-
-	<p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
-	<p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
-	<p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
-	<p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+&nbsp;
+Dear Kimi,最近想到很多关于食物的事情，然后就想到了你二出国后，离开了你们那个圈子，我也没有和你们那圈人联系过去年的时候，最出奇的相遇是在北京的地铁上遇见你，都没想到会听见好久不见这样的话你来出差，然后就说带我去吃饭我说，不要，你去忙你说，已经结束，明天就回上海&nbsp;，也不想去见其他人那个时候我就想到，如果那天不是因为遇到我耽误了时间，你会不会去找Olivia呢可能吧，即使你只是在暗地里去看着她</div>
 </div>
-
-<div class="ui-layout-center">
-	This center pane auto-sizes to fit the space <i>between</i> the 'border-panes'
-	<p>This layout was created with only <b>default options</b> - no customization</p>
-	<p>Only the <b>applyDefaultStyles</b> option was enabled for <i>basic</i> formatting</p>
-	<p>The Pop-Up and Drop-Down lists demonstrate the <b>allowOverflow()</b> utility</p>
-	<p>The Close and Toggle buttons are examples of <b>custom buttons</b></p>
-	<p><a href="http://layout.jquery-dev.net/demos.html">Go to the Demos page</a></p>
-	<p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
-	<p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
-	<p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
-	<p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+<div class="articlebox" style="position:absolute; left:680px; width:280px; height:110px; background-color:transparent">
+    <div class="articletitle">『他们在拍什么』Mitch Epstein，纽约的树</div>
+    <div class="graytext articlefrom">5月14日 19:25 |  来自：<span>Leica中文摄影杂志</span> </div>
+    <div class="articlesummary" style="height:40px">“New York Arbor”是美国摄影师 Mitch Epstein 完成于2012年的一个私人拍摄项目，在这个项目中，摄影师记录了一系列纽约市里的树木的肖像，藉此来呈现人们日常生活中被忽视的自然的隐喻。“这些树就生长于在于纽约，和人们的生活交织在一起：白杨、翠柏、山毛榉、榆树、菩提树、枫树、梧桐树、柳树…这些安静的树默默藏在皇后区或布鲁克林某个街道的侧面，自成风景。每一棵树都是城市自然的图腾，代表着穿越钢筋水泥的文明历史，为
+    </div>
 </div>
-
-
-
-@*@Html.Partial("_NoteListPartial")
-@Html.Partial("_NotePartial")*@
+<div class="articlebox" style="position:absolute; left:680px; top:110px; width:280px; height:110px; background-color:transparent">
+    <div class="articletitle">蚊子的秀图 【微距摄影】</div>
+    <div class="graytext articlefrom">5月12日 10:30 |  来自：<span>心旷神怡</span> </div>
+    <div class="articlesummary" style="height:40px">
+    蚊子的秀图还可以如此美丽一只蚊子想找吃的，最终成为我的镜头下的被摄物了。
+      
+2013.5.12.心旷神怡摄记
+    </div>
+</div>
+<div class="articlebox" style="position:absolute; left:680px; top:220px; width:280px; height:110px; background-color:transparent">
+    <div class="articletitle">粽夏</div>
+    <div class="graytext articlefrom">5月13日 10:00 |  来自：<span>色界频道</span> </div>
+    <div class="articlesummary" style="height:40px">
+    夏天的起始，是在飘香的粽叶末端
+Tag 
+视界
+   
+&nbsp;&nbsp;分享这篇文章，或留下你的观点
+  
+我们猜你还喜欢：
+日本
+九份的小清新
+南国·小旖
+伦敦昼与夜
+立夏
+      
+MSN spaces搬家，给您一个更安全、更有保障的方案！
+    </div>
+</div>
+<div class="articlebox" style="position:absolute; left:680px; top:330px; width:280px; height:110px; background-color:transparent">
+    <div class="articletitle">妈妈，祝您母亲节愉快！</div>
+    <div class="graytext articlefrom">5月12日 11:25 |  来自：<span>心旷神怡</span> </div>
+    <div class="articlesummary" style="height:40px">
+    今天是母亲节祝妈妈节日愉快今天是母亲节，送上我对妈妈的问候和祝福！发上几张照片我与妈妈的合影。在此祝妈妈母亲节愉快！身体安康！我与妈妈在农民工博物馆里面的合影&nbsp;&nbsp;妈妈站在农民工博物馆里面我的手印旁&nbsp;&nbsp;&nbsp;
+我与妈妈在农民工博物馆里面的合影&nbsp;&nbsp;我与妈妈在农民工博物馆里面的合影&nbsp;&nbsp;&nbsp;我与妈妈在农民工博物馆里面的合影&nbsp;&nbsp;2013.5.12.心旷神怡摄记&nbsp;
+    </div>
+</div>
+<div class="articlebox" style="position:absolute; left:680px; top:440px; width:280px; height:110px; background-color:transparent">
+    <div class="articletitle">看看风景</div>
+    <div class="graytext articlefrom">5月13日 10:15 |  来自：<span>色界频道</span> </div>
+    <div class="articlesummary" style="height:40px">
+    看看风景，我其实一直想来的地方并不是这个小岛，而是美国，我几年前有一个梦，我要在加州买一台旧车，然后沿着66号公路一直开到波士顿，但是后来我却到了这里，过了一年几乎要封闭的生活。 其实我一点都不怕孤独。
+大自然的力量有多么伟大，也许你并不定会相信，但是如果你看过太阳从沙漠里升起，雪山被晨曦映红，或者是一盏渔火。我喜欢阿甘跑步的那段日子，这个片段我也来来回回的看，一遍又一遍，他跑过那些美丽的地方和四季。
+    </div>
+</div>
+<div class="articlebox" style="position:absolute; left:680px; top:550px; width:280px; height:110px; background-color:transparent">
+    <div class="articletitle">『苹果官方推荐 App』MyBaby · 喂奶提醒 x 成长日志：母亲节快乐</div>
+    <div class="graytext articlefrom">5月12日 9:10 |  来自：<span>Leica中文摄影杂志</span> </div>
+    <div class="articlesummary" style="height:40px">
+    「MyBaby · 喂奶提醒 x 成长日志」是一个专门帮助妈妈和爸爸记录新生儿饮食状况和成长记录的萌系 App，提供「喂奶提醒」、「饮食心情记录」、「出生日倒数」等贴心功能，并内置一个非常方便的重复计时器，满足宝宝成长中的各种提醒需求。特别亮点1.「喂奶提醒」选择任意时间间隔，多次提醒，可选择不同喂奶方式2.「饮食心情记录」每日提醒记录宝宝排便情况和心情状况3.「出生日倒数」宝宝出生已经多少天？距离宝宝1岁还有多少天？
+    </div>
+</div>

@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="/images/css.css" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+    @*<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.6.2.js")" type="text/javascript"></script>*@
+</head>
+<body>
+<div class="main">
+<!--left  start-->
+<div class="left">
+	<div class="leftmain">
+ 		<div class="leftmain-search">
+  			<input class="searchtxt" type="text" value="" /><input  class="searchbtn" type="button" value="" />
+ 		</div>
+		<div class="collection">
+         	<div class="collection-top">
+          		<ul>
+                	<li class="collection-top-select"><a href="#">所有收藏</a></li>
+                    <li>|</li>
+                    <li><a href="#">所有定阅</a></li>
+                </ul>
+         	</div>
+            
+            <div class="collection-list">
+            	<ul>
+                 	<li><a href="#">我的笔记</a></li>
+                 	<li><a href="#">城保</a></li>
+                </ul>     
+            </div>
+            <div class="collection-img">
+            	<ul>
+                 	<li><a href="#"><img src="/images/1.jpg" /></a></li>
+                 	<li><a href="#"><img src="/images/1.jpg" /></a></li>
+                 	<li><a href="#"><img src="/images/1.jpg" /></a></li>
+                 	<li><a href="#"><img src="/images/1.jpg" /></a></li>
+                </ul>     
+            </div>
+        </div>        
+	</div>
+</div>
+<!--left  end-->
+
+<!--right  start-->
+<div class="right">
+<div class="rightbackgroundlowerthan159">
+</div>
+</div>
+<div class="rightmain">
+    	<div class="rightmain-top">
+        	<div class="rightmain-top-img"><img src="/images/1.jpg" /></div>
+            <div class="rightmain-top-content">
+             	<ul>
+              		<li>
+                        <h2>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <text>@User.Identity.Name</text>
+                            }
+                        </h2>
+                    </li>
+              		<li>
+                        @if(Request.IsAuthenticated) { 
+                            @Html.ActionLink("Sign out", "LogOff", "Account")
+                        }
+                    </li>
+             	</ul>                  
+            </div>
+        </div>
+    
+        <div class="allcollection">
+        	<div class="allcollectionleft"><h2>所有收藏</h2></div>
+            <div class="allcollectionright">
+             <a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a>
+            </div>
+        </div>
+        
+        <div class="allcollection alltype">
+        	<div class="alltypeleft"><h2>所有类型</h2></div>
+            <div class="alltyperight">
+             <a href="#" class="alltyperightsjx alltyperightselect">文章</a><a href="#" class="alltyperightsjx">图片</a><a href="#" class="alltyperightsjx">视频</a><a href="#" class="alltyperightsjx">音乐</a><a href="#" class="alltyperightsjx">More</a><a href="#" class="alltyperightrefresh">refresh</a>
+            </div>
+        </div>
+    
+    	<div class="rightcontent">
+            @RenderBody()
+        </div>
+        <div class="settings">
+        	<ul>
+            	<li><a href="#">Settings</a></li>
+            </ul>
+        </div>	
+    </div>
+<!--right  end-->
+<div class="rightRedBar"></div>
+</div>
+
+<script type="text/javascript">
+    var screenwidth = window.screen.width - 20;
+    $(".searchtxt").focus(function () {
+        $(".leftmain-search").addClass("leftmain-searchfocus");
+    }).blur(function () {
+        $(".leftmain-search").removeClass("leftmain-searchfocus");
+    })
+
+    $(".alltyperight a").click(function () {
+        $(".alltyperight a").removeClass("alltyperightselect");
+        $(this).addClass("alltyperightselect");
+    })
+</script>
+</body>
+</html>

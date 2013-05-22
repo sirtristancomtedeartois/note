@@ -44,7 +44,7 @@ namespace Notenet.Web.Desktop.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Main", "Home");
                     }
                 }
                 else
