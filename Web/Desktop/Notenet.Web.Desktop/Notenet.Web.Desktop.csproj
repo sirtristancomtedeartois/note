@@ -71,6 +71,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content IncluShell\Images\1.jpg" />
+    <Content Include="Content\Shell\Images\1.png" />
+    <Content Include="Content\Shell\Images\fabric_plaid.png" />
+    <Content Include="Content\Shell\Images\refresh.png" />
+    <Content Include="Content\Shell\Images\search.png" />
+    <Content Include="Content\Shell\Images\select_refresh.png" />
+    <Content Include="Content\Shell\Images\select_setting.png" />
+    <Content Include="Content\Shell\Images\select_sign.png" />
+    <Content Include="Content\Shell\Images\select_sjx.png" />
+    <Content Include="Content\Shell\Images\setting.png" />
+    <Content Include="Content\Shell\Images\sign.png" />
+    <Content Include="Content\Shell\Images\sjx.png" /40x100.png" />
     <Content IncluShell\Index.css" /40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
