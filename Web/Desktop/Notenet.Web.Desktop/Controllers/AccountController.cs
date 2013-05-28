@@ -22,6 +22,11 @@ namespace Notenet.Web.Desktop.Controllers
 
         public ActionResult LogOn()
         {
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Shell");
+            }
+
             return View();
         }
 
@@ -44,7 +49,8 @@ namespace Notenet.Web.Desktop.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        //return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Shell");
                     }
                 }
                 else
@@ -110,7 +116,8 @@ namespace Notenet.Web.Desktop.Controllers
                 {
                     //FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     this.SetAuthCookie(model.UserName, false);
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Shell");
                 }
                 else
                 {

@@ -63,7 +63,7 @@
     <Compile Include="Controllers\CoverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
+      <DependentUpon>Global.asax</DependentUponControllers\Shell<DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -328,6 +328,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\_ViewStart.cshtml" />
+  </  <Folder Include="Content\Shell" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\About.cshtml" />
@@ -351,7 +352,8 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
+       Other similar extension points ex  <Content Include="Views\Shell\Index.cshtml" />
+    <Content Include="Views\Shell\_LogOnPartial.cshtmloints exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">

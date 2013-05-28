@@ -13,7 +13,8 @@ namespace Notenet.Web.Desktop.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Shell");
             }
 
             ViewBag.Message = "Welcome to ASP.NET MVC!";

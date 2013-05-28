@@ -1,0 +1,12 @@
+﻿@if(Request.IsAuthenticated) {
+    <ul>
+        <li><h2>@User.Identity.Name</h2></li>
+        <li>@Html.ActionLink("Sign out", "LogOff", "Account")</li>
+    </ul>
+@*    <text>Welcome <strong>@User.Identity.Name</strong>!
+    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>*@
+}
+else
+{//, new { ReturnUrl = "Home/Index" }, null
+    @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+}
