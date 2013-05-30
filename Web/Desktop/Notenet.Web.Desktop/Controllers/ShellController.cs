@@ -11,6 +11,7 @@ namespace Notenet.Web.Desktop.Controllers
         //
         // GET: /Shell/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View();
