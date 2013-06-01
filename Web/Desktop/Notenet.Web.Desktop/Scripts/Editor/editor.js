@@ -1,11 +1,10 @@
-﻿(function ($) {
-    var appMeta = { "name": "editor", "type": "window" }; 
+(function ($) {
     var editor = "";
-    $.event.trigger("cacheAppUI", { "appMeta": appMeta, "html": editor }); // name could be namespaced as "appname.filename(encoded)"
+    $.event.trigger("cacheAppUI", { "appMeta": { "name": "editor", "type": "window" }, "html": editor }); // name could be namespaced as "appname.filename(encoded)"
     $.event.trigger("registerApp", {
-        "appMeta": appMeta,
+        "appMeta": { "name": "editor", "type": "window" },
         "main": function (header, para) {
             return ""
         }
-    }) // open appname, header, para
+    }) // open appMeta, header, para
 })(jQuery);
