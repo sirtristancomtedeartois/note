@@ -1,11 +1,11 @@
-(function ($) {
+﻿(function ($) {
     /*app register*/
     var apps = [];
 
     $(this).bind("registerApp", function (event, app) {
         if (app.appMeta.type = "window") {
             if (apps[app.appMeta.name] === undefined) {
-                apps[app.appMeta.name] = app;
+                apps[app.appMeta.name] = app.main;
             }
         }
     });
@@ -14,16 +14,16 @@
     var appUICache = [];
 
     var addToAppUICache = function (app) {
-        $("windowAppCache").prepend("<div></div>").prepend(app.html);
-        appUICache[app.appMeta.name] = $("windowAppCache:first-child");
-        appUICache[app.appMeta.name].css("display", "none");
-        appUICache[app.appMeta.name].addClass("windowApp")
+        if (app.appMeta.type === "window") {
+            $("windowAppCache").prepend("<div></div>").prepend(app.html);
+            appUICache[app.appMeta.name] = $("windowAppCache:first-child");
+            appUICache[app.appMeta.name].css("display", "none");
+            appUICache[app.appMeta.name].addClass("windowApp");
+        }
     }
 
     $(this).bind("cacheAppUI", function (event, app) {
-        if (app.appMeta.type === "window") {
-            addToAppUICache(app);
-        }
+        addToAppUICache(app);
     });
 
     /*open an app*/
@@ -36,8 +36,7 @@
 
             if (appUICache[appUIName] === undefined) {
                 if (apps[appMeta.name] !== undefiend) {
-                    var app = { "appMeta": appMeta, "html": apps[appMeta.name].main(header, para) };
-                    appMeta.name = appUIName;
+                    var app = { "appMeta": { "name": appUIName, "type": appMeta.type }, "html": apps[appMeta.name](header, para) };
                 }
                 addToAppUICache(app);
             }
