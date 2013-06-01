@@ -1,6 +1,6 @@
-﻿(function ($) {
+(function ($) {
     /*app register*/
-    var apps = [];
+    var apps = {};
 
     $(this).bind("registerApp", function (event, app) {
         if (app.appMeta.type = "window") {
@@ -11,12 +11,12 @@
     });
 
     /*app ui cache*/
-    var appUICache = [];
+    var appUICache = {};
 
     var addToAppUICache = function (app) {
         if (app.appMeta.type === "window") {
-            $("windowAppCache").prepend("<div></div>").prepend(app.html);
-            appUICache[app.appMeta.name] = $("windowAppCache:first-child");
+            $("#windowAppCache").prepend("<div></div>").prepend(app.html);
+            appUICache[app.appMeta.name] = $("#windowAppCache > div:first-child");
             appUICache[app.appMeta.name].css("display", "none");
             appUICache[app.appMeta.name].addClass("windowApp");
         }
@@ -27,11 +27,12 @@
     });
 
     /*open an app*/
-    $(this).bind("open", function (event, appMeta, header, para) {
+    $(this).bind("open", function (event, appMeta, header, para, onOpenned) {
+        event.preventDefault();
         if (appMeta.type = "window") {
             var appUIName = appMeta.name;
             if (header !== undefined) {
-                appUIName = appUIName + "." + header;
+                appUIName = [appUIName, ".", header].join("");
             }
 
             if (appUICache[appUIName] === undefined) {
@@ -42,7 +43,11 @@
             }
 
             appUICache[appUIName].show();
-            appUICache["windowAppCache"].show("slide", {}, 500, callback)
+            if (onOpenned !== undefined) {
+                $("#windowAppCache").show("slide", {}, 500, onOpenned)
+            } else {
+                $("#windowAppCache").show("slide", {}, 500);
+            }
         }
     });
 })(jQuery);
