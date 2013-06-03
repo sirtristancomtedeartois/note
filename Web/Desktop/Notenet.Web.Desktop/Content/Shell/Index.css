@@ -167,4 +167,4 @@ a.alltyperightrefresh:hover{background:url(Images/select_refresh.png) no-repeat 
 .articleimg {margin:5px 0;}
 .articlesummary {margin-top:5px;  padding-top:2px; font-family:Georgia, times new roman; font-size:14px; line-height:22px; color:#000; overflow:hidden}
 
-.windowApp {position:absolute; width:960px; left:50%; top: 30px;height:100%; margin-left:-350px; display:none; background:blue;}
+.windowApp {position:absolute; width:960px; left:50%; top: 30px;height:100%; margin-left:-350px; background:transparent;}
